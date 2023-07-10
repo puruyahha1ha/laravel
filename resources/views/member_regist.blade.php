@@ -12,7 +12,7 @@
 <body>
     <h1>会員情報登録</h1>
 
-    <form action="/www" method="get">
+    <form action="/confirm" method="post">
         {{ csrf_field() }}
         <div id="regist_form">
             {{-- 氏名 --}}
