@@ -12,7 +12,7 @@
 <body>
     <h1>会員情報登録</h1>
 
-    <form action="/confirm" method="post">
+    <form action="{{ route('confirm') }}" method="POST" >
         {{ csrf_field() }}
         <div id="regist_form">
             {{-- 氏名 --}}

@@ -29,6 +29,8 @@ class PostController extends Controller
         ];
 
         $this->validate($request, $valdate_rule);
-        return view('confirm');
+        $inputs = $request->all();
+
+        return view('confirm', ['inputs' => $inputs]);
     }
 }
