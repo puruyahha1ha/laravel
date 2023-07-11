@@ -19,6 +19,10 @@ class PostController extends Controller
 
     public function confirm(Request $request)
     {
+        if ($request->confirm == 'トップに戻る') {
+            return redirect()->action('TopController@top');
+        }
+
         $valdate_rule = [
             'name_sei' => 'bail|required|max:20',
             'name_mei' => 'bail|required|max:20',
@@ -46,13 +50,18 @@ class PostController extends Controller
         // 二重送信防止
         $request->session()->regenerateToken();
 
+        // パスワードのハッシュ化
+        $password = $request->password_a;
+
+        $hash_password = bcrypt($password);
+
         // DBに登録
         $member = new Member();
         $member->name_sei = $request->name_sei;
         $member->name_mei = $request->name_mei;
         $member->nickname = $request->nickname;
         $member->gender = $request->gender;
-        $member->password = $request->password_a;
+        $member->password = $hash_password;
         $member->email = $request->email;
         $member->save();
 
@@ -64,7 +73,7 @@ class PostController extends Controller
             'gender' => $request->gender,
             'email' => $request->email,
         ]));
-        
+
         return view('complete');
     }
 }

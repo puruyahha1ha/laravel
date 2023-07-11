@@ -7,6 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>会員登録確認画面</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //送信ボタンを押した際に送信ボタンを無効化する（連打による多数送信回避）
+        $(function() {
+            $('[type="submit"]').click(function() {
+                $(this).prop('disabled', true); //ボタンを無効化する
+                $(this).closest('form').submit(); //フォームを送信する
+            });
+        });
+    </script>
 </head>
 
 <body>

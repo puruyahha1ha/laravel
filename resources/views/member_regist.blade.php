@@ -82,8 +82,9 @@
             @endif
         </div>
 
-        <div id="confirm">
-            <input type="submit" name="confirm" value="確認画面へ">
+        <div class="button">
+            <input type="submit" name="confirm" value="確認画面へ" class="submit">
+            <input type="submit" name="confirm" value="トップに戻る" class="submit_re">
         </div>
     </form>
 </body>
