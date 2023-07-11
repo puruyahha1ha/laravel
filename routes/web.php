@@ -13,5 +13,7 @@
 
 Route::get('/', 'PostController@index');
 
-Route::post('/confirm', 'PostController@post')->name('confirm');
+Route::post('/confirm', 'PostController@confirm')->name('confirm');
+
+Route::post('/complete', 'PostController@complete')->name('complete');
 
